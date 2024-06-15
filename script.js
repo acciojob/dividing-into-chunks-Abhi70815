@@ -3,19 +3,23 @@ const divide = (arr, n) => {
 let len=arr.length;
 let arr1=[];
 let sum=0;
+	let result=[];
   // Write your code here
 	for (let i = 0; i < len; i++) {
-		if(sum<=n){
+		if(sum+arr[i]<=n){
            sum+=arr[i];
 			arr1.push(arr[i]);
 		}
-		if(sum==n){
-           arr.push(arr1);
-			sum=0;
-			arr1=0;
+		else{
+           result.push(arr1);
+			sum=arr[i];
+			arr1=[arr[i]];
 		}
 	}
-	return arr;
+	if(arr1.length>0){
+		result.push(arr1);
+	}
+	return result;
 	
 };
 
